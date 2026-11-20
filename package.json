@@ -1,0 +1,50 @@
+{
+  "name": "medireech-backend",
+  "version": "1.0.0",
+  "description": "MediReech API — Pan-India medicine availability and pharmacy networking platform",
+  "private": true,
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "NODE_ENV=test node --disable-warning=ExperimentalWarning --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
+    "test:watch": "NODE_ENV=test node --disable-warning=ExperimentalWarning --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch --runInBand",
+    "test:coverage": "NODE_ENV=test node --disable-warning=ExperimentalWarning --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage --runInBand",
+    "seed:super-admin": "node scripts/seed-super-admin.js",
+    "expire:reservations": "node scripts/expire-pending-reservations.js",
+    "process:notifications": "node scripts/process-notification-outbox.js",
+    "process:payments": "node scripts/process-payment-jobs.js",
+    "worker:notifications": "node scripts/run-notification-worker.js"
+  },
+  "dependencies": {
+    "@socket.io/redis-adapter": "^8.3.0",
+    "bcrypt": "^6.0.0",
+    "bullmq": "^5.58.5",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.2",
+    "firebase-admin": "^13.4.0",
+    "helmet": "^8.3.0",
+    "ioredis": "^5.7.0",
+    "joi": "^18.3.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.4",
+    "morgan": "^1.12.1",
+    "razorpay": "^2.9.8",
+    "socket.io": "^4.8.1",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "mongodb-memory-server": "^11.3.0",
+    "socket.io-client": "^4.8.1",
+    "supertest": "^7.3.1"
+  }
+}
