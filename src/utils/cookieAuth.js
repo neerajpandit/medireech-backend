@@ -27,7 +27,7 @@ export const durationToMs = (value) => {
 const baseCookieOptions = () => ({
   httpOnly: true,
   secure: env.isProduction,
-  sameSite: 'lax',
+  sameSite: 'none',
 });
 
 export const accessCookieOptions = () => ({
